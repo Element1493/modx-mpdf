@@ -2,7 +2,7 @@
 /**
 * Библиотека: mPDF [https://mpdf.github.io/]
 * Автор плагина: Сергей Зверев <element1493@yandex.ru>
-* Версия: 0.0.7
+* Версия: 0.0.8
 */
 class mPDF {
 	/** @var modX $modx */
@@ -322,9 +322,10 @@ class mPDF {
 				'tplHeader'     => $hook->formit->config['tplPDFHeader'],
 				'tplFooter'     => $hook->formit->config['tplPDFFooter'],
 				'title'         => $hook->formit->config['pdfTitle']?:$hook->formit->config['emailSubject'],
-				'alias_path'    => $hook->formit->config['pdfAliasPath']?:'formit/',
+				'alias_path'    => $hook->formit->config['pdfAliasPath']?:'form/',
 				'alias'         => $hook->formit->config['pdfAlias']?:'document',
-				'options'		=> $hook->formit->config['pdfOptions']
+				'options'		=> $hook->formit->config['pdfOptions'],
+				'date'			=> $hook->formit->config['pdfDate']?:'d.m.Y G:i'
 			);
 			$options = array_merge($config,$options);
 			$options['alias'] = $options['alias'].'-'.time();
@@ -337,8 +338,15 @@ class mPDF {
 			if (file_exists($pdf)) {@unlink($pdf);}
 			
 			$this->createPDF($options);
-			$hook->setValue('pdfTitle', $options['title']);
-			$hook->setValue('pdfLink', $this->modx->getOption('site_url').trim($this->options['pdfUrl'].$options['alias_path'].$options['alias'].'.pdf','/'));
+			$hook->setValue(array(
+				'pdfTitle' 		=> $options['title'],
+				'pdfTime'  		=> time(),
+				'pdfDate'  		=> date($options['date'],time()),
+				'pdfUrl'   		=> $this->options['pdfUrl'],
+				'pdfAliasPath'	=> $options['alias_path'],
+				'pdfAlias'		=> $options['alias'],
+				'pdfLink'		=> $this->modx->getOption('site_url').trim($this->options['pdfUrl'].$options['alias_path'].$options['alias'].'.pdf','/')
+			));
 		}
     }
 }

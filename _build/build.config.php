@@ -3,7 +3,7 @@
 define('PKG_NAME', 'mPDF');
 define('PKG_NAME_LOWER', strtolower(PKG_NAME));
 
-define('PKG_VERSION', '0.0.7');
+define('PKG_VERSION', '0.0.8');
 define('PKG_RELEASE', 'beta');
 define('PKG_AUTO_INSTALL', false);
 define('PKG_NAMESPACE_PATH', '{core_path}components/' . PKG_NAME_LOWER . '/');
@@ -21,7 +21,6 @@ else {
 define('MODX_CORE_PATH', MODX_BASE_PATH . 'core/');
 define('MODX_MANAGER_PATH', MODX_BASE_PATH . 'manager/');
 define('MODX_CONNECTORS_PATH', MODX_BASE_PATH . 'connectors/');
-define('MODX_ASSETS_PATH', MODX_BASE_PATH . 'assets/');
 
 /* define urls */
 define('MODX_BASE_URL', '/');
