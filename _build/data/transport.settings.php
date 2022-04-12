@@ -6,7 +6,7 @@ $tmp = array(
 	//main
 	'pdfCSS' => array(	
         'xtype'    =>'textfield',
-        'value'    =>'10',
+        'value'    =>'',
         'area'     =>'mpdf_main'
     ),
     'pdfPath' => array(	

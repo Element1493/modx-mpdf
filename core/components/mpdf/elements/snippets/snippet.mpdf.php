@@ -5,11 +5,6 @@ if (!$mpdf = $modx->getService('mpdf','mPDF', $corePath.'model/', array('corePat
     return;
 }
 if($input){
-    if ($input == $modx->resource->get('id')) {
-        $resource = &$modx->resource;
-    } else {
-        $resource = $modx->getObject('modResource', $input);
-    }
     return $mpdf->linkPDF($input);
 }else{
     if($live){

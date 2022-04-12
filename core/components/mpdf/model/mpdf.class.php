@@ -1,5 +1,5 @@
 <?php
-/**
+/*
 * Библиотека: mPDF [https://mpdf.github.io/]
 * Автор плагина: Сергей Зверев <element1493@yandex.ru>
 * Версия: 0.0.8
@@ -169,6 +169,7 @@ class mPDF {
 		try {
 			//Информация
 			$this->initPDF($options);
+			$this->mpdf->debug = true;
 			$this->mpdf->SetTitle($this->getOption('title', $options, ''));   									// Заголовок PDF
 			$this->mpdf->SetAuthor($this->getOption('author', $options, $this->modx->getOption('site_name')));  // Автор PDF
 			$this->mpdf->SetCreator($this->getOption('creator', $options, $this->modx->getOption('site_url'))); // Создатель PDF
@@ -230,7 +231,7 @@ class mPDF {
                 return $this->mpdf->Output();
             }
 				
-		} catch (MpdfException $e) {
+		} catch (\Mpdf\MpdfException $e) { 
             $this->modx->log(modX::LOG_LEVEL_ERROR, 'mPDF - Не удалось создать PDF-файл: ' . $e->getMessage(), '', 'mPDF');
             return;
         }
