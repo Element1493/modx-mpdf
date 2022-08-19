@@ -345,8 +345,8 @@ class mPDF {
 				'pdfUrl'   		=> $this->options['pdfUrl'],
 				'pdfAliasPath'	=> $options['alias_path'],
 				'pdfAlias'		=> $options['alias'],
-				'pdfLinkUrl'	=> $this->modx->getOption('site_url').trim($this->options['pdfUrl'].$options['alias_path'].$options['alias'].'.pdf','/')),
-				'pdfLinkPath' 	=> $this->modx->getOption('base_path').trim($this->options['pdfUrl'].$options['alias_path'].$options['alias'].'.pdf','/'))
+				'pdfLinkUrl'	=> $this->modx->getOption('site_url').trim($this->options['pdfUrl'].$options['alias_path'].$options['alias'].'.pdf','/'),
+				'pdfLinkPath' 	=> $this->modx->getOption('base_path').trim($this->options['pdfUrl'].$options['alias_path'].$options['alias'].'.pdf','/')
 			));
 		}
     }
