@@ -338,15 +338,18 @@ class mPDF {
 			if (file_exists($pdf)) {@unlink($pdf);}
 			
 			$this->createPDF($options);
-			$hook->setValue(array(
+			
+			$pdfFile = $this->options['pdfUrl'].$options['alias_path'].$options['alias'].'.pdf';
+			
+			$hook->setValues(array(
 				'pdfTitle' 		=> $options['title'],
 				'pdfTime'  		=> time(),
 				'pdfDate'  		=> date($options['date'],time()),
 				'pdfUrl'   		=> $this->options['pdfUrl'],
 				'pdfAliasPath'	=> $options['alias_path'],
 				'pdfAlias'		=> $options['alias'],
-				'pdfLinkUrl'	=> $this->modx->getOption('site_url').trim($this->options['pdfUrl'].$options['alias_path'].$options['alias'].'.pdf','/'),
-				'pdfLinkPath' 	=> $this->modx->getOption('base_path').trim($this->options['pdfUrl'].$options['alias_path'].$options['alias'].'.pdf','/')
+				'pdfLinkUrl'	=> $this->modx->getOption('site_url').trim($pdfFile,'/'),
+				'pdfLinkPath' 	=> $this->modx->getOption('base_path').trim($pdfFile,'/')
 			));
 		}
     }
