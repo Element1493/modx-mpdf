@@ -2,7 +2,6 @@
 /*
 * Библиотека: mPDF [https://mpdf.github.io/]
 * Автор плагина: Сергей Зверев <element1493@yandex.ru>
-* Версия: 0.0.8
 */
 class mPDF {
 	/** @var modX $modx */
@@ -346,7 +345,8 @@ class mPDF {
 				'pdfUrl'   		=> $this->options['pdfUrl'],
 				'pdfAliasPath'	=> $options['alias_path'],
 				'pdfAlias'		=> $options['alias'],
-				'pdfLink'		=> $this->modx->getOption('site_url').trim($this->options['pdfUrl'].$options['alias_path'].$options['alias'].'.pdf','/')
+				'pdfLinkUrl'	=> $this->modx->getOption('site_url').trim($this->options['pdfUrl'].$options['alias_path'].$options['alias'].'.pdf','/')),
+				'pdfLinkPath' 	=> $this->modx->getOption('base_path').trim($this->options['pdfUrl'].$options['alias_path'].$options['alias'].'.pdf','/'))
 			));
 		}
     }

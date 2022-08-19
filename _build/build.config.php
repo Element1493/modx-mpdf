@@ -3,7 +3,7 @@
 define('PKG_NAME', 'mPDF');
 define('PKG_NAME_LOWER', strtolower(PKG_NAME));
 
-define('PKG_VERSION', '0.0.8');
+define('PKG_VERSION', '0.0.9');
 define('PKG_RELEASE', 'beta');
 define('PKG_AUTO_INSTALL', false);
 define('PKG_NAMESPACE_PATH', '{core_path}components/' . PKG_NAME_LOWER . '/');
